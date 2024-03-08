@@ -19,7 +19,7 @@ print(a)
 
 **1)** O que o código a seguir faz?
 
-![Uma imagem](assets/ex01.PNG)
+![Uma imagem](assets/ex01.png)
 
 Escolha a opção que responde corretamente:
 
@@ -36,7 +36,7 @@ ______
 
 **2)** Identificar a linha que falta no código para criar uma classe Veiculo com atributo marca, e uma classe Carro que herda de Veiculo com um método ligar(). 
 
-![Uma imagem](assets/ex02.PNG)
+![Uma imagem](assets/ex02.png)
 
 No lugar onde está escrito “// linha” qual das opções abaixo deve estar para funcionar corretamente o código?
 
@@ -53,7 +53,7 @@ ______
 
 **3)** Qual é o valor de resultado após a execução deste código?
 
-![Uma imagem](assets/ex03.PNG)
+![Uma imagem](assets/ex03.png)
 
 Escolha a opção que responde corretamente:
 
@@ -70,33 +70,33 @@ ______
 
 **4)** Como você criaria um método `acelerar()` em uma classe `Carro`, que recebe um parâmetro `velocidade` e o adiciona a um atributo `velocidadeAtual`?
 
-**A) ![Uma imagem](assets/ex04_1.PNG)**
+**A) ![Uma imagem](assets/ex04_1.png)**
 
-B) ![Uma imagem](assets/ex04_2.PNG)
+B) ![Uma imagem](assets/ex04_2.png)
 
-C) ![Uma imagem](assets/ex04_3.PNG)
+C) ![Uma imagem](assets/ex04_3.png)
 
-D) ![Uma imagem](assets/ex04_4.PNG)
+D) ![Uma imagem](assets/ex04_4.png)
 
 **RESPOSTA: A**
 ______
 
 **5)** Qual a forma correta de definir uma classe Carro em JavaScript, com um método ligar() e um atributo marca?
 
-**A) ![Uma imagem](assets/ex05_1.PNG)**
+**A) ![Uma imagem](assets/ex05_1.png)**
 
-B) ![Uma imagem](assets/ex05_2.PNG)
+B) ![Uma imagem](assets/ex05_2.png)
 
-C) ![Uma imagem](assets/ex05_3.PNG)
+C) ![Uma imagem](assets/ex05_3.png)
 
-D) ![Uma imagem](assets/ex05_4.PNG)
+D) ![Uma imagem](assets/ex05_4.png)
 
 **RESPOSTA: A**
 ______
 
 **6)** Observe o código abaixo:
 
-![Uma imagem](assets/ex06.PNG)
+![Uma imagem](assets/ex06.png)
 
 Qual será a saída do código acima?
 
@@ -281,34 +281,45 @@ Certifique-se de explicar cada parte do código utilizando comentários, explica
 **RESPOSTA**
 
 ```javascript
+//Definição da classe base "Funcionario"
 class Funcionario {
-    constructor(nome, idade, salarioBase) {
+    constructor(nome, idade, salarioBase) { //inicialização dos atibutos comuns a todos os funcionários
         this.nome = nome;
         this.idade = idade;
         this.salarioBase = salarioBase;
     }
 
+    // Método base para calcular o salário, que será sobrescrito nas subclasses
     calcularSalario(){
 
     }
 }
 
+// Definição da classe Professor, que herda da classe Funcionario
 class Professor extends Funcionario {
+    // Construtor que chama o construtor da classe base e adiciona atributos específicos
     constructor(nome, idade, salarioBase, disciplina, horasAula) {
-        super(nome, idade, salarioBase);
+        super(nome, idade, salarioBase); //atributos herdados da classe "Funcionario"
+        //Criação dos novos atributos, presentes apenas na classe professor
         this.disciplina = disciplina;
         this.horasAula = horasAula;
     }
 
+    // Sobrescrita do método calcularSalario para calcular o salário específico de um professor
     calcularSalario(horasAula, salarioBase) {
-        this.salario = this.horasAula * this.salarioBase
+        // Cálculo do salário multiplicando o número de horas de aula pelo salário base
+        this.salario = this.horasAula * this.salarioBase 
+
+        // Impressão no console com os detalhes do salário do professor
         console.log(`O professor ${this.nome}, de ${this.idade} anos, dá aula de ${this.disciplina} durante ${this.horasAula} horas, e recebe um salário de ${this.salario.toLocaleString('PT')}`)
     }
 }
 
+// Criação de instâncias da classe Professor
 let prof1 = new Professor("Mariano", 37, 50, "Ciências", 100);
 let prof2 = new Professor("Reginaldo", 46, 48, "História", 100);
 
+// Chamada do método calcularSalario para cada professor
 prof1.calcularSalario()
 prof2.calcularSalario()
 ```
